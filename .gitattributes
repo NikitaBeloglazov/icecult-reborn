@@ -1,4 +1,5 @@
+* linguist-vendored
 *.js linguist-language=HTML
 *.css linguist-language=HTML
 *.html linguist-language=HTML
-*.py linguist-language=Python
+*.py linguist-language=Python linguist-vendored=false
