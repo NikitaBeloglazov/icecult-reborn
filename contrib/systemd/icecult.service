@@ -5,6 +5,8 @@ After=multi-user.target network.target network-online.target
 
 [Service]
 Type=simple
+User=icecult
+Group=icecult
 EnvironmentFile=/etc/icecult.conf
 WorkingDirectory=/var/lib/icecult
 ExecStart=/usr/bin/python3 /usr/bin/icecult.py
