@@ -39,8 +39,8 @@ install -Dm 644  contrib/systemd/icecult.service %{buildroot}%{_unitdir}/icecult
 install -Dm 644  contrib/systemd/icecult.sysusers %{buildroot}%{_sysusersdir}/system-user-icecult.conf
 install -Dm 644  contrib/systemd/valheim.env %{buildroot}%{_sysconfdir}/icecult.conf
 install -Dm 755  redirect.py %{buildroot}%{_bindir}/icecult
-install -Dm 644  app/* %{buildroot}%{_datadir}/icecult
-install -Dm 644 -p ./contrib/icecult_nginx_conf %{buildroot}%{_sysconfdir}/nginx/conf.d/icecult.conf
+install -Dm 644 ./contrib/icecult_nginx_conf %{buildroot}%{_sysconfdir}/nginx/conf.d/icecult.conf
+cp  app/* %{buildroot}%{_datadir}/icecult
 
 %files
 %{_unitdir}/icecult.service
