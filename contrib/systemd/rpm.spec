@@ -24,6 +24,7 @@ URL:            https://github.com/NikitaBeloglazov/icecult-reborn
 Source:         %{name}-%{version}.tar.gz
 Requires:       python310
 Requires:       python310-Flask
+Requires:       nginx
 
 %description
 icecult-reborn - web interface for eiskaltdcpp-daemon
@@ -39,12 +40,14 @@ install -Dm 644  contrib/systemd/icecult.sysusers %{buildroot}%{_sysusersdir}/sy
 install -Dm 644  contrib/systemd/valheim.env %{buildroot}%{_sysconfdir}/icecult.conf
 install -Dm 755  redirect.py %{buildroot}%{_bindir}/icecult
 install -Dm 644  app/* %{buildroot}%{_datadir}/icecult
+install -Dm 644 -p ./contrib/icecult_nginx_conf %{buildroot}%{_sysconfdir}/nginx/conf.d/icecult.conf
 
 %files
 %{_unitdir}/icecult.service
 %{_sysusersdir}/system-user-icecult.conf
-%{_sysconfdir}/valheim.conf
+%config(noreplace) %{_sysconfdir}/valheim.conf
 %{_datadir}/icecult
+%config(noreplace) %{_sysconfdir}/nginx/conf.d/icecult.conf
 
 %pre
 %service_add_pre icecult.service
