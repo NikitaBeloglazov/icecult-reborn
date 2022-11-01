@@ -1,8 +1,43 @@
-DEMON_ADDRESS_AND_PORT = "127.0.0.0:3121"
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-WEB_ADDRESS = "0.0.0.0"
-WEB_PORT   = 8080
+import os
+env_message = 0 # see line 30
+try:
+	DEMON_ADDRESS_AND_PORT = os.environ['DEMON_ADDRESS_AND_PORT'] # parse demon adress and port from env
+except:
+	env_message += 1
+	print("! Еnvironment setting \"DEMON_ADDRESS_AND_PORT\" not found. Using default.")
+	DEMON_ADDRESS_AND_PORT = "127.0.0.0:3121" # default
+print("-> DEMON_ADDRESS_AND_PORT = "+DEMON_ADDRESS_AND_PORT)
 
+try:
+	WEB_ADDRESS = os.environ['WEB_ADDRESS'] # parse web adress from env
+except:
+	env_message += 1
+	print("! Еnvironment setting \"WEB_ADDRESS\" not found. Using default.")
+	WEB_ADDRESS = "0.0.0.0" # default
+print("-> WEB_ADDRESS = "+WEB_ADDRESS)
+
+try:
+	WEB_PORT = int(os.environ['WEB_PORT']) # parse web port from env
+except:
+	env_message += 1
+	print("! Еnvironment setting \"WEB_PORT\" not found. Using default.")
+	WEB_PORT = 8080 # default
+print("-> WEB_PORT = "+str(WEB_PORT))
+
+if env_message == 3:
+	print("!!! === No one environment settings found. Using standard settings that may not suit you.")
+del env_message
+
+#DEMON_ADDRESS_AND_PORT = "127.0.0.0:3121"
+#WEB_ADDRESS = "0.0.0.0"
+#WEB_PORT    = 8080
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # Verification
+# Demon connectivity check
 import requests
 try:
 	test = requests.post(f'http://{DEMON_ADDRESS_AND_PORT}/rpc', json={}).text
@@ -14,11 +49,14 @@ else:
 	print(test)
 	del test
 
+# = = =
+# Dependencies check
 try:
 	from flask import Flask, request, send_from_directory, render_template
 except ImportError:
 	print("!!! === SKIPPED DEPENDENCIES\nInstall flask: \npip3 install flask")
 	exit()
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 app = Flask(__name__)
 
