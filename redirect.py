@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -54,7 +54,7 @@ else:
 try:
 	from flask import Flask, request, send_from_directory, render_template
 except ImportError:
-	print("!!! === SKIPPED DEPENDENCIES\nInstall flask: \npip3 install flask")
+	print("!!! === SKIPPED DEPENDENCIES\nInstall flask from your package manager or via pip: \npip3 install flask")
 	exit()
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
