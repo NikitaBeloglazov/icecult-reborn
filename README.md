@@ -41,8 +41,10 @@ And then test it with the running daemon. If need, use Testing section below.
 ```
 python3 redirect.py
 ```
+### Setting up systemd
+*WORKING
 
-If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and set up server below
+If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and configure server below
 
 # Config
 
@@ -61,10 +63,13 @@ DEMON_ADDRESS_AND_PORT="127.0.0.0:3121" WEB_ADDRESS="0.0.0.0" WEB_PORT="8080" py
 ```
 **If you don't know what env is and how to work with it** -> [*click*](https://web.archive.org/web/20221222050656/https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/)
 
-## Using env
+## Using systemd
 *WORKING
 ## Edit defauls in python file 
-*WORKING
+**\*Not recommended to use, your values may be erased during update**
+* Open redirect.py file in text editor
+* Search with keywords `# default`
+* Replace default values to desired values
 
 # Contribution
 * Patches are welcome!
