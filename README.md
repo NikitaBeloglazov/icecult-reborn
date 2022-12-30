@@ -3,8 +3,7 @@
 [![author: NikitaBeloglazov](https://img.shields.io/badge/author-.%E2%80%A2%C2%B0%E2%97%8F%E2%9D%A4%EF%B8%8F%20NikitaBeloglazov%20Software%20Foundation%20%E2%9D%A4%EF%B8%8F%E2%97%8F%C2%B0%E2%80%A2.-informational)](https://github.com/NikitaBeloglazov)
 [![forkedFrom: eiskaltdcpp/icecult](https://img.shields.io/badge/forked%20from-eiskaltdcpp%2Ficecult-inactive)](https://github.com/eiskaltdcpp/icecult)
 
-icecult-reborn
-=======
+# icecult-reborn
 Forked from [eiskaltdcpp/icecult](https://github.com/eiskaltdcpp/icecult).
 Alternative webinterface for [eiskaltdcpp-daemon](https://github.com/eiskaltdcpp/eiskaltdcpp).
 
@@ -23,20 +22,13 @@ Planned:
 * Optimize quering users on the current server
 * Optimize frontend (rewrite?)
 
-Screenshots
------------
+# Screenshots
 *needs to update
 * Hubs: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_hubs.png)
 * Browse: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_browse.png)
 * Queue: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_queue.png)
 
-License
--------
-* [MIT license](/../../blob/master/LICENSE)
-* Some 3rd-party libraries [here](/../../tree/master/app/libs) licensed under MIT, too
-
-Install
-------
+# Install
 Clone the repository to your local disk
 ```
 git clone https://github.com/NikitaBeloglazov/icecult-reborn
@@ -45,18 +37,36 @@ Then install flask module
 ```
 pip3 install flask
 ```
-Then test it with the running daemon. If need, use Testing section below.
+And then test it with the running daemon. If need, use Testing section below.
 ```
 python3 redirect.py
 ```
 
 If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and set up server below
 
-Config
-------
+# Config
 
-Contribution
-------------
+### Notation
+*NAME_OF_VARIABLE = DEFAULT_VALUE
+
+`DEMON_ADDRESS_AND_PORT = "127.0.0.0:3121"` — IP address and port where eiskaltdaemon jsonrpc interface is located
+
+`WEB_ADDRESS = "0.0.0.0"` — IP address where the panel (icecult) will be located. Normally, editing this value is not necessary. If you don't know what it is, don't touch it.
+
+`WEB_PORT = 8080` — Port where the panel (icecult) will be located. Useful with NAT servers
+## Using env
+Just write parameters before the main run command, like that:
+```
+DEMON_ADDRESS_AND_PORT="127.0.0.0:3121" WEB_ADDRESS="0.0.0.0" WEB_PORT="8080" python3 redirect.py
+```
+**If you don't know what env is and how to work with it** -> [*click*](https://web.archive.org/web/20221222050656/https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/)
+
+## Using env
+*WORKING
+## Edit defauls in python file 
+*WORKING
+
+# Contribution
 * Patches are welcome!
 * If you need to add extra library, then:
   * check the license of that library very carefully
@@ -64,8 +74,11 @@ Contribution
   * try to find a usual CDN server hosting the file and only if you can't find one, copy source version of javascript file into this repo
 * To speed up the process [write to maintainer](https://t.me/NikitaBeloglazov)
 
-Changelog
----------
+# License
+* [MIT license](/../../blob/master/LICENSE)
+* Some 3rd-party libraries [here](/../../tree/master/app/libs) licensed under MIT, too
+
+# Changelog
 
 === FORKED ===
 
