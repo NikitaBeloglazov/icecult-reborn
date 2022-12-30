@@ -1,7 +1,11 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-success)](https://pylint.pycqa.org/en/latest/)
+[![author: NikitaBeloglazov](https://img.shields.io/badge/author-.%E2%80%A2%C2%B0%E2%97%8F%E2%9D%A4%EF%B8%8F%20NikitaBeloglazov%20Software%20Foundation%20%E2%9D%A4%EF%B8%8F%E2%97%8F%C2%B0%E2%80%A2.-informational)](https://github.com/NikitaBeloglazov)
+[![forkedFrom: eiskaltdcpp/icecult](https://img.shields.io/badge/forked%20from-eiskaltdcpp%2Ficecult-inactive)](https://github.com/eiskaltdcpp/icecult)
 
-icecult
+icecult-reborn
 =======
+Forked from [eiskaltdcpp/icecult](https://github.com/eiskaltdcpp/icecult).
 Alternative webinterface for [eiskaltdcpp-daemon](https://github.com/eiskaltdcpp/eiskaltdcpp).
 
 Features:
@@ -11,15 +15,19 @@ Features:
 * Download folders/files
 * List of current/queued downloads
 * Show Hash status and Upload/Download-Ratio
+* Search (thanks, [campbebj](https://github.com/eiskaltdcpp/icecult/pull/26))
 
 Planned:
-* Search
+* Search sorting
+* Search on all servers
+* Optimize quering users on the current server
+* Optimize frontend (rewrite?)
 
 Screenshots
 -----------
-* Hubs: ![Hubs](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_hubs.png)
-* Browse: ![Browse](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_browse.png)
-* Queue: ![Queue](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_queue.png)
+* Hubs: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_hubs.png)
+* Browse: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_browse.png)
+* Queue: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_queue.png)
 
 License
 -------
@@ -28,7 +36,7 @@ License
 
 Setup
 -----
-* Look up [this wiki page](/../../wiki).
+* WORKING
 
 Contribution
 ------------
@@ -37,31 +45,35 @@ Contribution
   * check the license of that library very carefully
   * check if that library is actively maintained (for fixing possible bugs in it)
   * try to find a usual CDN server hosting the file and only if you can't find one, copy source version of javascript file into this repo
+* To speed up the process [write to maintainer](https://t.me/NikitaBeloglazov)
 
 Changelog
 ---------
+
+=== FORKED ===
+
 * 0.6.2:
   * bugfix: download of single files starting with "d"
-  * bugfix: be more tolerant with hub's chat time formats [#23](/../../issues/23)
+  * bugfix: be more tolerant with hub's chat time formats [#23](https://github.com/eiskaltdcpp/icecult/pull/23)
 
 * 0.6.1:
-  * feature: wrap long chat messages [#21](/../../issues/21)
-  * feature: render urls in chat messages as links [#22](/../../issues/22)
+  * feature: wrap long chat messages [#21](https://github.com/eiskaltdcpp/icecult/pull/21)
+  * feature: render urls in chat messages as links [#22](https://github.com/eiskaltdcpp/icecult/pull/22)
 
 * 0.6.0:
-  * feature: desktop notifications for chat messages [#18](/../../issues/18)
-  * feature: priorities for download queue [#17](/../../issues/17) / [#19](/../../issues/19)
-  * feature: store enlargeable chat state [#20](/../../issues/20)
+  * feature: desktop notifications for chat messages [#18](https://github.com/eiskaltdcpp/icecult/pull/18)
+  * feature: priorities for download queue [#17](https://github.com/eiskaltdcpp/icecult/pull/17) / [#19](https://github.com/eiskaltdcpp/icecult/pull/19)
+  * feature: store enlargeable chat state [#20](https://github.com/eiskaltdcpp/icecult/pull/20)
 
 * 0.5.2:
-  * feature: enlargeable chat [#15](/../../issues/15) / [#16](/../../issues/16) (thx [@mmrose](https://github.com/mmrose))
+  * feature: enlargeable chat [#15](https://github.com/eiskaltdcpp/icecult/pull/15) / [#16](https://github.com/eiskaltdcpp/icecult/pull/16) (thx [@mmrose](https://github.com/mmrose))
   * feature: improved ui: auto scaling chat size window, better tooltips in user list, responsive navigation
   * bugfix: only partial filelist displayed in browse view
 
 * 0.5.1:
   * feature: updated angular to 1.3.14
   * feature: added localstorage versioning
-  * bugfix: proper html escaping of chat messages [#14](/../../issues/14)
+  * bugfix: proper html escaping of chat messages [#14](https://github.com/eiskaltdcpp/icecult/pull/14)
 
 * 0.5.0:
   * feature: added settings tab
@@ -76,18 +88,18 @@ Changelog
   * feature: show available updates in statusbar
 
 * 0.3.0:
-  * bugfix: Chat text could be sent multiple times [#8](/../../issues/8)
-  * feature: Download queue size visible in status bar [#9](/../../issues/9)
+  * bugfix: Chat text could be sent multiple times [#8](https://github.com/eiskaltdcpp/icecult/pull/8)
+  * feature: Download queue size visible in status bar [#9](https://github.com/eiskaltdcpp/icecult/pull/9)
   * feature: Updated angular and bootstrap versions
 
 * 0.2.1:
-  * bugfix: Abort buttons in Download queue not functional [#7](/../../issues/7)
+  * bugfix: Abort buttons in Download queue not functional [#7](https://github.com/eiskaltdcpp/icecult/pull/7)
 
 * 0.2.0:
-  * bugfix: Update of already downloaded filelist not possible [#5](/../../issues/5)
-  * bugfix: In mobile view Bootstrap's navbar collapse button without function [#4](/../../issues/4)
-  * feature: Sorting users in hub view [#3](/../../issues/3)
-  * feature: Show bandwidth in kBit/s [#2](/../../issues/2)
+  * bugfix: Update of already downloaded filelist not possible [#5](https://github.com/eiskaltdcpp/icecult/pull/5)
+  * bugfix: In mobile view Bootstrap's navbar collapse button without function [#4](https://github.com/eiskaltdcpp/icecult/pull/4)
+  * feature: Sorting users in hub view [#3](https://github.com/eiskaltdcpp/icecult/pull/3)
+  * feature: Show bandwidth in kBit/s [#2](https://github.com/eiskaltdcpp/icecult/pull/2)
 
 * 0.1.1:
   * feature: added queue item details button to show more information
