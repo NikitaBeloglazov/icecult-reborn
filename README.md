@@ -15,7 +15,7 @@ Features:
 * Download folders/files
 * List of current/queued downloads
 * Show Hash status and Upload/Download-Ratio
-* Search (thanks, [campbebj](https://github.com/eiskaltdcpp/icecult/pull/26))
+* Search on current server (thanks, [campbebj](https://github.com/eiskaltdcpp/icecult/pull/26))
 
 Planned:
 * Search sorting
@@ -25,6 +25,7 @@ Planned:
 
 Screenshots
 -----------
+*needs to update
 * Hubs: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_hubs.png)
 * Browse: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_browse.png)
 * Queue: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_queue.png)
@@ -34,9 +35,25 @@ License
 * [MIT license](/../../blob/master/LICENSE)
 * Some 3rd-party libraries [here](/../../tree/master/app/libs) licensed under MIT, too
 
-Setup
------
-* WORKING
+Install
+------
+Clone the repository to your local disk
+```
+git clone https://github.com/NikitaBeloglazov/icecult-reborn
+```
+Then install flask module
+```
+pip3 install flask
+```
+Then test it with the running daemon. If need, use Testing section below.
+```
+python3 redirect.py
+```
+
+If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and set up server below
+
+Config
+------
 
 Contribution
 ------------
