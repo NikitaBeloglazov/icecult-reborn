@@ -42,7 +42,19 @@ And then test it with the running daemon. If need, use Testing section below.
 python3 redirect.py
 ```
 ### Setting up systemd
-*WORKING
+* configure environments in env/cfg file `/etc/icecult.conf` with your parameters.
+eg:
+```ini
+DEMON_ADDRESS_AND_PORT="127.0.0.1:3121"
+WEB_ADDRESS="127.0.0.1"
+WEB_PORT="8080"
+```
+* enable autostart & run service
+```shell
+systemctl enable --now icecult.service
+```
+
+by default, the daemon runs as a separate user who must also be present in the system.
 
 If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and configure server below
 
