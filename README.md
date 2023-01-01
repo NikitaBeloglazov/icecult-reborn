@@ -18,8 +18,9 @@ Features:
 
 Planned:
 * Search sorting
-* Search on all servers
 * Optimize quering users on the current server
+* Fix Bug, if the file name in the search is too long, the download button disappears beyond the visibility zone
+* Search on all servers
 * Optimize frontend (rewrite?)
 
 # Screenshots
@@ -29,36 +30,21 @@ Planned:
 * Queue: [*click*](https://raw.github.com/eiskaltdcpp/icecult/master/screens/icecult_queue.png)
 
 # Install
+### Simple
 Clone the repository to your local disk
-```
+```shell
 git clone https://github.com/NikitaBeloglazov/icecult-reborn
 ```
 Then install flask module
-```
+```shell
 pip3 install flask
 ```
 And then test it with the running daemon. If need, use Testing section below.
-```
+```shell
 python3 redirect.py
 ```
-### Setting up systemd
-* configure environments in env/cfg file `/etc/icecult.conf` with your parameters.
-eg:
-```ini
-DEMON_ADDRESS_AND_PORT="127.0.0.1:3121"
-WEB_ADDRESS="127.0.0.1"
-WEB_PORT="8080"
-```
-* enable autostart & run service
-```shell
-systemctl enable --now icecult.service
-```
-* restart service
-```shell
-systemctl restart icecult.service
-```
 
-### Setting up without package
+### Setting up without package completely manually
 ```shell
 git clone https://github.com:NikitaBeloglazov/icecult-reborn.git /tmp/icecult
 cd /tmp/icecult
@@ -70,13 +56,14 @@ install -Dm 755  redirect.py /usr/bin/icecult
 install -Dm 644 ./contrib/icecult_nginx_conf /etc/nginx/conf.d/icecult.conf
 cp  app/* /var/lib/icecult/
 systemd-sysusers /usr/lib/sysusers.d/system-user-valheim-server.conf
+pip3 install flask
 # edit env/cfg file as you need
 systemctl enable --now icecult.service
 cd ~
 rm -rf /tmp/icecult
 ```
 
-by default, the daemon runs as a separate user who must also be present in the system.
+by default, the daemon runs as a separate user (`icecult`) who must also be present in the system.
 
 If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and configure server below
 
@@ -92,18 +79,39 @@ If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and co
 `WEB_PORT = 8080` — Port where the panel (icecult) will be located. Useful with NAT servers
 ## Using env
 Just write parameters before the main run command, like that:
-```
+```shell
 DEMON_ADDRESS_AND_PORT="127.0.0.0:3121" WEB_ADDRESS="0.0.0.0" WEB_PORT="8080" python3 redirect.py
 ```
 **If you don't know what env is and how to work with it** -> [*click*](https://web.archive.org/web/20221222050656/https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/)
 
 ## Using systemd
-*WORKING
+**\*Relevant if you installed a ready-made package or installed completely manually, including unit for systemd**
+* configure environments in env/cfg file `/etc/icecult.conf` with your parameters.
+eg:
+```ini
+DEMON_ADDRESS_AND_PORT="127.0.0.1:3121"
+WEB_ADDRESS="127.0.0.1"
+WEB_PORT="8080"
+```
+* enable autostart & run service
+```shell
+systemctl enable --now icecult.service
+```
+* or restart service if it's already running
+```shell
+systemctl restart icecult.service
+```
+
 ## Edit defauls in python file 
 **\*Not recommended to use, your values may be erased during update**
 * Open redirect.py file in text editor
 * Search with keywords `# default`
 * Replace default values to desired values
+
+# Testing / Debug / Troubleshooting
+* Try run `eiskaltdcpp-daemon --debug`
+* If the connection with the demon is not happening, try running test_rpc.py, and look at the logs, if nothing happens at all, the redirect for some reason does not work at all
+* You can also try specify `debug=True` in redirect.py (located at the end of the file)
 
 # Contribution
 * Patches are welcome!
