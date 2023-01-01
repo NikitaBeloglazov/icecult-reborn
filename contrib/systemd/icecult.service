@@ -1,0 +1,27 @@
+[Unit]
+Description=web interface for eiskaltdcpp-daemon
+Wants=network-online.target
+After=multi-user.target network.target network-online.target
+
+[Service]
+Type=simple
+User=icecult
+Group=icecult
+EnvironmentFile=/etc/icecult.conf
+WorkingDirectory=/var/lib/icecult
+ExecStart=/usr/bin/python3 /usr/bin/icecult
+Restart=always
+RestartSec=30
+TimeoutStartSec=300
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ProtectSystem=strict
+ProtectHome=read-only
+SystemCallFilter=~@mount
+
+[Install]
+WantedBy=multi-user.target
