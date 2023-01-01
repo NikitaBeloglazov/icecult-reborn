@@ -53,6 +53,10 @@ WEB_PORT="8080"
 ```shell
 systemctl enable --now icecult.service
 ```
+* restart service
+```shell
+systemctl restart icecult.service
+```
 
 ### Setting up without package
 ```shell
