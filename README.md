@@ -54,6 +54,24 @@ WEB_PORT="8080"
 systemctl enable --now icecult.service
 ```
 
+### Setting up without package
+```shell
+git clone https://github.com:NikitaBeloglazov/icecult-reborn.git /tmp/icecult
+cd /tmp/icecult
+git checkout $VERSION
+install -Dm 644  contrib/systemd/icecult.service /etc/systemd/system/icecult.service
+install -Dm 644  contrib/systemd/icecult.env /etc/icecult.conf
+install -Dm 644  contrib/systemd/icecult.sysusers /usr/lib/sysusers.d/system-user-icecult.conf
+install -Dm 755  redirect.py /usr/bin/icecult
+install -Dm 644 ./contrib/icecult_nginx_conf /etc/nginx/conf.d/icecult.conf
+cp  app/* /var/lib/icecult/
+systemd-sysusers /usr/lib/sysusers.d/system-user-valheim-server.conf
+# edit env/cfg file as you need
+systemctl enable --now icecult.service
+cd ~
+rm -rf /tmp/icecult
+```
+
 by default, the daemon runs as a separate user who must also be present in the system.
 
 If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and configure server below
