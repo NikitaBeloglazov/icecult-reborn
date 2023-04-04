@@ -1,7 +1,7 @@
-#
 # spec file for package icecult-reborn
 #
 # Copyright (c) 2021 SUSE LLC
+# Copyright (c) 2023 Nikita Beloglazov, Dmitry Markov
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -13,13 +13,12 @@
 # published by the Open Source Initiative.
 
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
-#
 
 Name:           icecult-reborn
 Version:        0.1.0
 Release:        0
 Summary:        icecult-reborn - web interface for eiskaltdcpp-daemon
-License:        MIT
+License:        Mozilla Public License 2.0
 URL:            https://github.com/NikitaBeloglazov/icecult-reborn
 Source:         %{name}-%{version}.tar.gz
 Requires:       python3

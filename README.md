@@ -1,6 +1,8 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
+<!-- # Copyright (c) 2023 Nikita Beloglazov, Dmitry Markov -->
+<!-- License: Mozilla Public License 2.0 -->
+[![License: Mozilla Public License 2.0](https://img.shields.io/badge/License-Mozilla%20Public%20License%202.0-blueviolet.svg)](https://mozilla.org/en-US/MPL/2.0)
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-success)](https://pylint.pycqa.org/en/latest/)
-[![author: NikitaBeloglazov](https://img.shields.io/badge/author-.%E2%80%A2%C2%B0%E2%97%8F%E2%9D%A4%EF%B8%8F%20NikitaBeloglazov%20Software%20Foundation%20%E2%9D%A4%EF%B8%8F%E2%97%8F%C2%B0%E2%80%A2.-informational)](https://github.com/NikitaBeloglazov)
+[![maintainer: NikitaBeloglazov](https://img.shields.io/badge/maintainer-.%E2%80%A2%C2%B0%E2%97%8F%E2%9D%A4%EF%B8%8F%20NikitaBeloglazov%20Software%20Foundation%20%E2%9D%A4%EF%B8%8F%E2%97%8F%C2%B0%E2%80%A2.-informational)](https://github.com/NikitaBeloglazov)
 [![forkedFrom: eiskaltdcpp/icecult](https://img.shields.io/badge/forked%20from-eiskaltdcpp%2Ficecult-inactive)](https://github.com/eiskaltdcpp/icecult)
 
 # icecult-reborn
@@ -65,7 +67,7 @@ rm -rf /tmp/icecult
 
 by default, the daemon runs as a separate user (`icecult`) who must also be present in the system.
 
-If you need, [configure the daemon](/../../blob/master/SETTING_DAEMON.md) and configure server below
+If you need, [configure the daemon](/../../blob/main/SETTING_DAEMON.md) and configure server below
 
 # Config
 
@@ -122,7 +124,8 @@ systemctl restart icecult.service
 * To speed up the process [write to maintainer](https://t.me/NikitaBeloglazov)
 
 # License
-* [MIT license](/../../blob/master/LICENSE)
+* The main part of the code under [Mozilla Public License Version 2.0](/../../blob/main/LICENSE)
+* Forked code [under MIT](https://github.com/eiskaltdcpp/icecult/blob/master/LICENSE)
 * Some 3rd-party libraries [here](/../../tree/master/app/libs) licensed under MIT, too
 
 # Changelog

@@ -1,5 +1,6 @@
-/* Copyright (c) 2017 Lars Kreisz */
-/* License:The MIT License (MIT) */
+/* Copyright (c) 2015 Lars Kreisz (under MIT) */
+/* Copyright (c) 2023 Nikita Beloglazov */
+/* License: Mozilla Public License 2.0 */
 
 'use strict';
 
