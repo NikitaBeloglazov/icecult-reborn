@@ -22,9 +22,8 @@ Summary:        icecult-reborn - web interface for eiskaltdcpp-daemon
 License:        MIT
 URL:            https://github.com/NikitaBeloglazov/icecult-reborn
 Source:         %{name}-%{version}.tar.gz
-Requires:       python310
-Requires:       python310-Flask
-Requires:       nginx
+Requires:       python3
+Requires:       %{python_module Flask}
 
 %description
 icecult-reborn - web interface for eiskaltdcpp-daemon
@@ -45,9 +44,9 @@ cp  app/* %{buildroot}%{_datadir}/icecult
 %files
 %{_unitdir}/icecult.service
 %{_sysusersdir}/system-user-icecult.conf
-%config(noreplace) %{_sysconfdir}/valheim.conf
+%config(noreplace) %{_sysconfdir}/icecult.conf
 %{_datadir}/icecult
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/icecult.conf
+%config(noreplace) /usr/share/icecult/templates/nginx/conf.d/icecult.conf
 
 %pre
 %service_add_pre icecult.service
