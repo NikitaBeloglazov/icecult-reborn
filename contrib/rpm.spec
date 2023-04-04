@@ -46,7 +46,7 @@ cp  app/* %{buildroot}%{_datadir}/icecult
 %{_sysusersdir}/system-user-icecult.conf
 %config(noreplace) %{_sysconfdir}/icecult.conf
 %{_datadir}/icecult
-%config(noreplace) /usr/share/icecult/templates/nginx/conf.d/icecult.conf
+%config(noreplace) /usr/share/icecult/templates/nginx/vhosts.d/icecult.conf
 
 %pre
 %service_add_pre icecult.service
