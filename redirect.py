@@ -18,6 +18,7 @@
 """
 
 import os
+import sys
 env_message = 0 # see line 30
 try:
 	DEMON_ADDRESS_AND_PORT = os.environ['DEMON_ADDRESS_AND_PORT'] # parse demon adress and port from env
@@ -56,10 +57,10 @@ del env_message
 # Demon connectivity check
 import requests
 try:
-	test = requests.post(f'http://{DEMON_ADDRESS_AND_PORT}/rpc', json={}).text
+	test = requests.post(f'http://{DEMON_ADDRESS_AND_PORT}/rpc', json={}, timeout=60).text
 except:
 	print("!!! === Connect to daemon failed, please start daemon")
-	exit()
+	sys.exit(1)
 else:
 	print("!!! === Connect to daemon successfully")
 	print(test)
@@ -68,31 +69,29 @@ else:
 # = = =
 # Dependencies check
 try:
-	from flask import Flask, request, send_from_directory, render_template
+	from flask import Flask, request, send_from_directory
 except ImportError:
 	print("!!! === SKIPPED DEPENDENCIES\nInstall flask from your package manager or via pip: \npip3 install flask")
-	exit()
+	sys.exit(1)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 app = Flask(__name__)
 
 @app.route("/rpc/", methods = ['GET', 'POST'])
 def proxy_to_rpc():
-	#print(request.json)
-	print("Redirect to port 3121")
-	proxy_request = requests.post(f'http://{DEMON_ADDRESS_AND_PORT}/rpc', json=request.json).text
-	print("Giving the answer")
+	""" Redirect requests from /rpc/ to the icecult daemon """
+	proxy_request = requests.post(f'http://{DEMON_ADDRESS_AND_PORT}/rpc', json=request.json, timeout=60).text
 	return proxy_request
 
 @app.route('/<path:filename>')
 def upload_file(filename):
-	return send_from_directory("app",
-							filename, as_attachment=False)
+	""" Uploads a file from storage. Made for all libraries, css and other web page materials are displaying correctly """
+	return send_from_directory("app", filename, as_attachment=False)
 
 @app.route('/')
 def index():
-	return send_from_directory("app",
-						"index.html", as_attachment=False)
+	""" Responsible for index.html so that this page is displayed when requested / """
+	return send_from_directory("app", "index.html", as_attachment=False)
 
 if __name__ == '__main__':
 	app.run(host=WEB_ADDRESS, port=WEB_PORT, debug=True)

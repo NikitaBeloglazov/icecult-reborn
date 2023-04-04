@@ -23,6 +23,7 @@ app = Flask(__name__)
 
 @app.route("/rpc", methods = ['POST'])
 def hello_world():
+	""" Takes requests from /rpc/ and prints it. Made for testing. """
 	print(request.json)
 	print("Giving [TEST RPC] OK")
 	return "[TEST RPC] OK"
