@@ -9,7 +9,7 @@
 Forked from [eiskaltdcpp/icecult](https://github.com/eiskaltdcpp/icecult).
 Alternative webinterface for [eiskaltdcpp-daemon](https://github.com/eiskaltdcpp/eiskaltdcpp).
 
-Features:
+# Features:
 * Connect to hubs
 * Chat (History stored in Browser)
 * Browse filelists of hub's users
@@ -18,6 +18,7 @@ Features:
 * Show Hash status and Upload/Download-Ratio
 * Search on current server (thanks, [campbebj](https://github.com/eiskaltdcpp/icecult/pull/26))
 
+### 🔽 Frontender HELP WANTED
 Planned:
 * Search sorting
 * Optimize quering users on the current server
